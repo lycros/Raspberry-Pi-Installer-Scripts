@@ -7,7 +7,6 @@
 # we reference a specific commit (update this as needed):
 GITUSER=https://github.com/hzeller
 REPO=rpi-rgb-led-matrix
-COMMIT=58830f7bb5dfb47fc24f1fd26cd7c4e3a20f13f7
 
 if [ $(id -u) -ne 0 ]; then
 	echo "Installer must be run as root."
@@ -156,10 +155,10 @@ echo "Downloading prerequisites..."
 apt-get install -y --force-yes python2.7-dev python-pillow python3-dev python3-pillow
 
 echo "Downloading RGB matrix software..."
-curl -L $GITUSER/$REPO/archive/$COMMIT.zip -o $REPO-$COMMIT.zip
-unzip -q $REPO-$COMMIT.zip
-rm $REPO-$COMMIT.zip
-mv $REPO-$COMMIT rpi-rgb-led-matrix
+curl -L $GITUSER/$REPO.zip -o $REPO.zip
+unzip -q $REPO.zip
+rm $REPO.zip
+mv $REPO rpi-rgb-led-matrix
 echo "Building RGB matrix software..."
 cd rpi-rgb-led-matrix
 if [ $QUALITY_MOD -eq 1 ]; then
